@@ -10,7 +10,8 @@ spec:
     targetRevision: HEAD
     path: argocd-apps/micro-apps/charts
   destination:
-    name: in-cluster
+    server: https://F31BA20E6104629F7038CDFC685371C6.gr7.eu-central-1.eks.amazonaws.com
+    name: stage-comet-eu-central-1
     namespace: argocd
   syncPolicy:
     automated:
