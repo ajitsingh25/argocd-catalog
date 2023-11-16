@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mongodb
+  namespace: argocd
+spec:
+  project: comet
+  source:
+    repoURL: https://github.com/ajitsingh25/argocd-catalog.git
+    targetRevision: HEAD
+    path: argocd-apps/micro-apps/charts
+  destination:
+    name: in-cluster
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false
