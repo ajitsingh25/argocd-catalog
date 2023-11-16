@@ -11,7 +11,7 @@ spec:
     path: argocd-apps/micro-apps/charts
   destination:
     server: https://F31BA20E6104629F7038CDFC685371C6.gr7.eu-central-1.eks.amazonaws.com
-    name: stage-comet-eu-central-1
+    # name: stage-comet-eu-central-1
     namespace: argocd
   syncPolicy:
     automated:
