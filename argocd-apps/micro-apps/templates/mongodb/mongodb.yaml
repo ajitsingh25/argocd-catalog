@@ -9,6 +9,10 @@ spec:
     repoURL: https://github.com/ajitsingh25/argocd-catalog.git
     targetRevision: HEAD
     path: argocd-apps/micro-apps/charts
+    helm:
+      releaseName: mongodb
+      valueFiles:
+        - /argocd-apps/micro-apps/charts/mongodb/values.yaml
   destination:
     name: arn:aws:eks:eu-central-1:768088911524:cluster/stage-comet-eu-central-1
     namespace: argocd
