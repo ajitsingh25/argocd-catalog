@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/ajitsingh25/argocd-catalog.git
     targetRevision: HEAD
-    path: argocd-apps/micro-apps
+    path: argocd-apps/micro-apps/templates
   destination:
     name: in-cluster
     namespace: argocd

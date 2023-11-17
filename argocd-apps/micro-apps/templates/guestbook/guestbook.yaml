@@ -10,12 +10,12 @@ spec:
     targetRevision: HEAD
     path: argocd-apps/micro-apps/charts/mongodb
     helm:
-      releaseName: mongodb
+      releaseName: helm-guestbook
       valueFiles:
-        - /argocd-apps/micro-apps/charts/mongodb/values.yaml
+        - /argocd-apps/micro-apps/charts/guestbook/values.yaml
   destination:
     name: arn:aws:eks:eu-central-1:768088911524:cluster/stage-comet-eu-central-1
-    namespace: mongodb
+    namespace: guestbook
   syncPolicy:
     automated:
       prune: true
