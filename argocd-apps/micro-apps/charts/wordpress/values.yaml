@@ -1,8 +1,14 @@
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+  size: 10Gi
+
 service:
-  type: NodePort
+  type: ClusterIP
 
 ingress:
   enabled: true
+  hostname: wordpress.api.comet.rocks
   annotations:
     alb.ingress.kubernetes.io/backend-protocol     : HTTP
     alb.ingress.kubernetes.io/scheme               : internet-facing
