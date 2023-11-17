@@ -3,12 +3,14 @@ kind: Application
 metadata:
   name: root-comet
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: comet
   source:
     repoURL: https://github.com/ajitsingh25/argocd-catalog.git
     targetRevision: HEAD
-    path: argocd-apps/micro-apps/templates
+    path: argocd-apps/micro-apps/templates/
   destination:
     name: in-cluster
     namespace: argocd
@@ -16,5 +18,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-      - Validate=false
