@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mongodb
+  name: guestbook
   namespace: argocd
 spec:
   project: comet
   source:
     repoURL: https://github.com/ajitsingh25/argocd-catalog.git
     targetRevision: HEAD
-    path: argocd-apps/micro-apps/charts/mongodb
+    path: argocd-apps/micro-apps/charts/helm-guestbook
     helm:
       releaseName: helm-guestbook
       valueFiles:
-        - /argocd-apps/micro-apps/charts/guestbook/values.yaml
+        - /argocd-apps/micro-apps/charts/helm-guestbook/values.yaml
   destination:
     name: arn:aws:eks:eu-central-1:768088911524:cluster/stage-comet-eu-central-1
     namespace: guestbook
