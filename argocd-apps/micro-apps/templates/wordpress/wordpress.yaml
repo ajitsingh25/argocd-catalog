@@ -9,8 +9,6 @@ spec:
     repoURL: https://github.com/ajitsingh25/argocd-catalog.git
     targetRevision: HEAD
     path: argocd-apps/micro-apps/charts/wordpress
-    directory:
-      recurse: true
     helm:
       releaseName: wordpress
       valueFiles:

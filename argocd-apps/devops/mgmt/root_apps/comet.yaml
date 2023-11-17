@@ -11,6 +11,8 @@ spec:
     repoURL: https://github.com/ajitsingh25/argocd-catalog.git
     targetRevision: HEAD
     path: argocd-apps/micro-apps/templates/
+    directory:
+      recurse: true
   destination:
     name: in-cluster
     namespace: argocd
