@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: comet
+  name: root-comet
   namespace: argocd
 spec:
   project: comet
