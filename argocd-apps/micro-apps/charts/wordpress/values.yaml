@@ -1,0 +1,20 @@
+service:
+  type: NodePort
+
+ingress:
+  enabled: true
+  annotations:
+    alb.ingress.kubernetes.io/backend-protocol     : HTTP
+    alb.ingress.kubernetes.io/scheme               : internet-facing
+    alb.ingress.kubernetes.io/listen-ports         : '[{"HTTPS":443}, {"HTTP":80}]'
+    alb.ingress.kubernetes.io/ssl-redirect         : '443'
+    alb.ingress.kubernetes.io/certificate-arn      : arn:aws:acm:eu-central-1:768088911524:certificate/4912e07a-856c-4ae1-8a23-760afef8848f
+    external-dns.alpha.kubernetes.io/hostname      : wordpress.api.comet.rocks
+    alb.ingress.kubernetes.io/load-balancer-name   : wordpress
+    
+  ingressClassName: "alb"
+  hosts:
+    - wordpress.api.comet.rocks
+  tls:
+    - hosts:
+        - wordpress.api.comet.rocks
