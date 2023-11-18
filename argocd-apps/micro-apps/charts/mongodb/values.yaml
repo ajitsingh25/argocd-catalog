@@ -6,3 +6,7 @@ persistence:
 
 # Use the initContainer to change permissions for us so Mongo can write to the volume
 volumePermissions.enabled: true
+
+auth:
+    rootUser: admin
+    existingSecret: "mongodb-secrets"
