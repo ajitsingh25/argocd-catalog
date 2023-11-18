@@ -1,5 +1,6 @@
 architecture: replicaset
-replicaCount: 3
+replicaCount: 2
+replicaSetName: rs0
 # We're testing, so 1Gi is fine
 persistence:
   size: 5Gi
@@ -8,5 +9,6 @@ persistence:
 volumePermissions.enabled: true
 
 auth:
-    rootUser: admin
-    existingSecret: "mongodb-secrets"
+  # enabled: true
+  rootUser: admin
+  existingSecret: "mongodb-secrets"
