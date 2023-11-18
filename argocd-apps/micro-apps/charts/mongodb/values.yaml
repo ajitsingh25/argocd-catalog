@@ -1,3 +1,5 @@
+arbiter:
+    enabled: false
 architecture: replicaset
 replicaCount: 2
 replicaSetName: rs0
@@ -9,6 +11,8 @@ persistence:
 volumePermissions.enabled: true
 
 auth:
-  # enabled: true
+  enabled: true
   rootUser: admin
+  usernames: ["test"]
+  databases: ["test"]
   existingSecret: "mongodb-secrets"
