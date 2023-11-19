@@ -7,9 +7,9 @@ metadata:
 spec:
   project: devops
   source: 
-    repoURL: https://github.com/ajitsingh25/argocd-catalog.git
+    repoURL: git@gitlab.com:comet-rocks/infra/argocd.git
     targetRevision: HEAD
-    path: argocd-apps/devops
+    path: argocd-apps/devops/charts
   destination:
     name: in-cluster
     namespace: argocd

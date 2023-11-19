@@ -1,9 +1,9 @@
 arbiter:
-    enabled: false
+    enabled: true
 architecture: replicaset
-replicaCount: 2
+replicaCount: 3
 replicaSetName: rs0
-# We're testing, so 1Gi is fine
+
 persistence:
   size: 5Gi
 
@@ -12,7 +12,12 @@ volumePermissions.enabled: true
 
 auth:
   enabled: true
-  rootUser: admin
-  usernames: ["test"]
-  databases: ["test"]
+  rootUser: root
   existingSecret: "mongodb-secrets"
+
+# service:
+# externalAccess:
+#   enabled: true
+#   type: NodePort
+#   ports:
+#     mongodb: 27017

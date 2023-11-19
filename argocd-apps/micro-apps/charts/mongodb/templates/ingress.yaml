@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mongo-express-ingress
+  namespace: mongodb
+  annotations:
+    kubernetes.io/ingress.class: alb
+    # alb.ingress.kubernetes.io/backend-protocol     : HTTP
+    alb.ingress.kubernetes.io/target-type          : ip
+    alb.ingress.kubernetes.io/scheme               : internet-facing
+    alb.ingress.kubernetes.io/listen-ports         : '[{"HTTPS":443}, {"HTTP":80}]'
+    # alb.ingress.kubernetes.io/ssl-redirect         : '443'
+    alb.ingress.kubernetes.io/certificate-arn      : arn:aws:acm:eu-central-1:768088911524:certificate/4912e07a-856c-4ae1-8a23-760afef8848f
+    external-dns.alpha.kubernetes.io/hostname      : mongo-stage.api.comet.rocks
+    alb.ingress.kubernetes.io/load-balancer-name   : mongodb
+    alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
+    alb.ingress.kubernetes.io/success-codes	: '200,301,302,401'
+spec:
+  ingressClassName: "alb"
+  rules:
+    - host: "mongo-stage.api.comet.rocks"
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: mongo-express-srv
+                port:
+                  number: 8081
